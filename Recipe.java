@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class lab10{
+public class Recipe{
 	static Scanner c=new Scanner(System.in);
 	public static void main(String[]args) throws Exception{
 		Scanner c=new Scanner(System.in);
@@ -39,6 +39,8 @@ public class lab10{
 	}
 	}
 	public static void createReceipt(ArrayList<Item> items){
+		/**create a Recipe if there is no item it will print you notFound until you press 0 to exist 
+		Also if there is item it will ask you to Enter the quantity and make a beautifull recipe for you :)*/
 		ArrayList<Item> sa=new ArrayList<>();
 		ArrayList<Integer> number=new ArrayList<>();
 		System.out.print("Enter Item Code: ");
@@ -79,6 +81,7 @@ public class lab10{
 		
 	}
 	public static void addItem(ArrayList<Item> items) throws Exception{
+		/**it will ask you to enter item code item price item quantity to make the item */
 		Item item=new Item();
 		System.out.print("Enter Item Code: ");
 		int code=c.nextInt();
@@ -95,6 +98,7 @@ public class lab10{
 		writeOnFile(items);
 	}
 	public static void editItem(ArrayList<Item> items) throws Exception{
+		/**you can from this method enter any item you want by entering its code modify its price and its name */
 		System.out.print("Enter Item Code : ");
 		int code=c.nextInt();
 		c.nextLine();
@@ -121,6 +125,7 @@ public class lab10{
 		writeOnFile(items);
 	}
 	public static void deleteItem(ArrayList<Item> items) throws Exception{
+		/**you can delete the item by its code and it will be deleted :) */
 		System.out.print("Enter item code : ");
 		int code=c.nextInt();
 		for(int i=0;i<items.size();i++){
@@ -136,6 +141,7 @@ public class lab10{
 	
 	
 public static	void writeOnFile(ArrayList<Item> items) throws Exception{
+	/**this method will store all your items in account.txt file after writing them from ArrayList */
 	File file=new File("account.txt");
 	PrintWriter output=new PrintWriter(file);
 	for(int i=0;i<items.size();i++){
@@ -146,6 +152,7 @@ public static	void writeOnFile(ArrayList<Item> items) throws Exception{
 	
 }
 public static void readfromfile(ArrayList<Item> items) throws Exception{
+	/**this method will read from the file to store it in the arrayList to be ready to use for our program */
 	File file=new File("account.txt");
 	Scanner x=new Scanner(file);
 	while(x.hasNext()){
